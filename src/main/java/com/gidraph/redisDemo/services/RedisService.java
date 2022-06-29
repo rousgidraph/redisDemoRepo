@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class RedisService {
 
 
+    final JedisConnectionFactory jedisConnectionFactory;
     final RedisOperations redisOperations;
 
     public boolean saveMessage(Message saveMe){

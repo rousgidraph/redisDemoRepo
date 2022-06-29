@@ -16,10 +16,14 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConfig {
 
 
+  
+    @Bean
     @Primary
     public JedisConnectionFactory jedisConnectionFactory(){
         JedisConnectionFactory jedisConFactory = new JedisConnectionFactory();  
-             
+
+        jedisConFactory.afterPropertiesSet();
+
         log.info("first");
         return jedisConFactory;
     }
@@ -28,7 +32,8 @@ public class RedisConfig {
     @Bean
     @Primary
     public RedisOperations<String, Message> redisOperations() {
-       
+        //JedisConnectionFactory jedisConFactory = new JedisConnectionFactory();  
+        
         Jackson2JsonRedisSerializer<Message> serializer = new Jackson2JsonRedisSerializer<>(Message.class);
 
         log.info("second");

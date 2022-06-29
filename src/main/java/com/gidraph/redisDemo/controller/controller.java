@@ -4,6 +4,9 @@ import com.gidraph.redisDemo.domains.Message;
 import com.gidraph.redisDemo.services.RedisService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -16,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class controller {
 
+   
     final RedisService redisService;
 
     @PostMapping("/set")
